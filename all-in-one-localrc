@@ -11,22 +11,23 @@
 # Set this to your management IP
 HOST_IP=x.y.z.w
 
-disable_service n-net
 enable_service n-cpu
 enable_service rabbit
+# Uncomment to disable Horizon
+#disable_service horizon
+disable_service n-net
 enable_service q-svc
 enable_service q-agt
 enable_service q-dhcp
 enable_service q-l3
 enable_service q-meta
+enable_service q-metering
 enable_service neutron
-# Uncomment to disable Horizon
-#disable_service horizon
+
 
 enable_service ceilometer-acompute ceilometer-acentral ceilometer-collector ceilometer-api
 #enable_service ceilometer-alarm-notifier ceilometer-alarm-evaluator
 
-disable_service n-net
 #disable_service n-cpu
 
 # Uncomment if you need tempest
@@ -60,3 +61,8 @@ API_RATE_LIMIT=False
 
 #RECLONE=yes
 
+
+
+# VLAN configuration
+#Q_PLUGIN=ml2
+#ENABLE_TENANT_VLANS=True
